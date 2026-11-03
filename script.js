@@ -255,3 +255,98 @@ function setBreak() {
 }
 
 updateTimerDisplay();
+// KNOWLY Smart Study Planner
+
+let studyTasks = JSON.parse(localStorage.getItem("knowlyTasks")) || [];
+
+function saveStudyTasks() {
+  localStorage.setItem("knowlyTasks", JSON.stringify(studyTasks));
+}
+
+function addStudyTask() {
+  const subject = document.getElementById("taskSubject").value.trim();
+  const topic = document.getElementById("taskTopic").value.trim();
+  const date = document.getElementById("taskDate").value;
+
+  if (!subject || !topic || !date) {
+    alert("Please fill in all fields!");
+    return;
+  }
+
+  studyTasks.push({
+    id: Date.now(),
+    subject,
+    topic,
+    date,
+    completed: false
+  });
+
+  saveStudyTasks();
+  displayStudyTasks();
+
+  document.getElementById("taskSubject").value = "";
+  document.getElementById("taskTopic").value = "";
+  document.getElementById("taskDate").value = "";
+}
+
+function toggleStudyTask(id) {
+  studyTasks = studyTasks.map(task =>
+    task.id === id
+      ? { ...task, completed: !task.completed }
+      : task
+  );
+
+  saveStudyTasks();
+  displayStudyTasks();
+}
+
+function deleteStudyTask(id) {
+  studyTasks = studyTasks.filter(task => task.id !== id);
+  saveStudyTasks();
+  displayStudyTasks();
+}
+
+function displayStudyTasks() {
+  const list = document.getElementById("studyTaskList");
+  const progress = document.getElementById("studyProgress");
+
+  if (!list || !progress) return;
+
+  list.innerHTML = "";
+
+  const completed = studyTasks.filter(task => task.completed).length;
+  progress.textContent =
+    `Progress: ${completed} / ${studyTasks.length} tasks completed`;
+
+  studyTasks.forEach(task => {
+    const card = document.createElement("div");
+    card.className = "study-task";
+
+    const details = document.createElement("div");
+    details.className = task.completed ? "task-done" : "";
+    details.textContent =
+      `${task.subject} — ${task.topic} (${task.date})`;
+
+    const actions = document.createElement("div");
+
+    const completeButton = document.createElement("button");
+    completeButton.className = "complete-btn";
+    completeButton.textContent = task.completed ? "Undo" : "Complete";
+    completeButton.addEventListener("click", () =>
+      toggleStudyTask(task.id)
+    );
+
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-btn";
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", () =>
+      deleteStudyTask(task.id)
+    );
+
+    actions.append(completeButton, deleteButton);
+    card.append(details, actions);
+    list.appendChild(card);
+  });
+}
+
+displayStudyTasks();
