@@ -202,3 +202,56 @@ function nextFlashcard() {
   showingAnswer = false;
   showFlashcard();
 }
+let timerSeconds = 25 * 60;
+let timerInterval = null;
+
+function updateTimerDisplay() {
+  const minutes = Math.floor(timerSeconds / 60);
+  const seconds = timerSeconds % 60;
+
+  document.getElementById("timerDisplay").textContent =
+    String(minutes).padStart(2, "0") + ":" +
+    String(seconds).padStart(2, "0");
+}
+
+function startTimer() {
+  if (timerInterval !== null) return;
+
+  document.getElementById("timerMessage").textContent = "Stay focused!";
+
+  timerInterval = setInterval(() => {
+    if (timerSeconds > 0) {
+      timerSeconds--;
+      updateTimerDisplay();
+    } else {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      document.getElementById("timerMessage").textContent =
+        "Session complete! Great work!";
+    }
+  }, 1000);
+}
+
+function pauseTimer() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+  document.getElementById("timerMessage").textContent = "Timer paused.";
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+  timerSeconds = 25 * 60;
+  updateTimerDisplay();
+  document.getElementById("timerMessage").textContent = "Ready to focus?";
+}
+
+function setBreak() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+  timerSeconds = 5 * 60;
+  updateTimerDisplay();
+  document.getElementById("timerMessage").textContent = "Break time!";
+}
+
+updateTimerDisplay();
