@@ -294,3 +294,73 @@ footer {
 
   .hero { padding: 28px; }
                    }
+/* KNOWLY Smart Study Planner */
+
+#study-planner {
+  margin: 40px 0;
+  padding: 25px;
+  border-radius: 16px;
+  background: #f4f0ff;
+  color: #292044;
+}
+
+.planner-form {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.planner-form input {
+  padding: 12px;
+  border: 1px solid #c8b9ed;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.planner-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #7651c9;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.study-task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  margin: 10px 0;
+  background: white;
+  border-radius: 10px;
+}
+
+.study-task button {
+  padding: 7px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.study-task .complete-btn {
+  background: #d9f5df;
+  color: #176b32;
+}
+
+.study-task .delete-btn {
+  background: #ffe0e0;
+  color: #a32121;
+}
+
+.task-done {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+#studyProgress {
+  font-weight: bold;
+  margin: 15px 0;
+}
