@@ -1,80 +1,118 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KNOWLY | Intelligent Learning</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KNOWLY - AI Learning Platform</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="app">
+    <aside class="sidebar">
+      <h2 class="logo">KNOWLY</h2>
+      <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#notes">Smart Notes</a>
+        <a href="#quiz">AI Quiz</a>
+        <a href="#research">Research</a>
+        <a href="#analytics">Analytics</a>
+      </nav>
+    </aside>
 
-    <h1>KNOWLY.</h1>
-
-    <h2>Learn Smarter. Think Deeper.</h2>
-
-    <p>
-        Welcome to KNOWLY, your intelligent learning
-        and research companion.
-    </p>
-
-<section class="dashboard">
-
-    <h2>Welcome to Your Dashboard</h2>
-    <p>Your journey towards smarter learning starts here.</p>
-
-    <div class="stats">
-        <div class="stat-card">
-            <h3>00</h3>
-            <p>Study Sessions</p>
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">YOUR LEARNING SPACE</p>
+          <h1>Welcome to KNOWLY</h1>
+          <p>Learn smarter. Grow faster.</p>
         </div>
+      </header>
 
+      <section id="dashboard" class="hero">
+        <h2>Make learning easier with KNOWLY</h2>
+        <p>Your personal space for notes, quizzes and research.</p>
+        <button onclick="startLearning()">Start Learning</button>
+      </section>
+
+      <section class="stats">
         <div class="stat-card">
-            <h3>00</h3>
-            <p>Quizzes Completed</p>
+          <h3 id="notesCount">0</h3>
+          <p>Notes created</p>
         </div>
-
         <div class="stat-card">
-            <h3>00%</h3>
-            <p>Learning Progress</p>
+          <h3 id="quizCount">0</h3>
+          <p>Quizzes completed</p>
         </div>
-    </div>
+        <div class="stat-card">
+          <h3 id="researchCount">0</h3>
+          <p>Research searches</p>
+        </div>
+      </section>
 
-</section>
-    
-    <h3>Explore Your Learning Journey</h3>
+      <section class="features">
+        <h2>Explore your tools</h2>
+        <div class="feature-grid">
+          <a href="#notes" class="feature-card">
+            <h3>Smart Notes</h3>
+            <p>Turn your text into quick study notes.</p>
+            <span>Open tool →</span>
+          </a>
+          <a href="#quiz" class="feature-card">
+            <h3>AI Quiz Generator</h3>
+            <p>Create a practice quiz from your topic.</p>
+            <span>Open tool →</span>
+          </a>
+          <a href="#research" class="feature-card">
+            <h3>Research Assistant</h3>
+            <p>Explore topics and find useful information.</p>
+            <span>Open tool →</span>
+          </a>
+          <a href="#analytics" class="feature-card">
+            <h3>Learning Analytics</h3>
+            <p>Track your learning activity.</p>
+            <span>Open tool →</span>
+          </a>
+        </div>
+      </section>
 
-    <div>
-        <h4>Smart Notes</h4>
-        <p>Transform study materials into meaningful notes.</p>
-    </div>
+      <section id="notes" class="tool-section">
+        <h2>Smart Notes</h2>
+        <p>Paste your lesson text below.</p>
+        <textarea id="notesInput" placeholder="Paste your study text here..."></textarea>
+        <button onclick="generateNotes()">Generate Notes</button>
+        <div id="notesOutput" class="output"></div>
+      </section>
 
-    <div>
-        <h4>AI Quiz Generator</h4>
-        <p>Test your knowledge with intelligent quizzes.</p>
-    </div>
+      <section id="quiz" class="tool-section">
+        <h2>Practice Quiz</h2>
+        <p>Enter a topic to create a simple practice question.</p>
+        <input id="quizTopic" type="text" placeholder="Enter a topic">
+        <button onclick="generateQuiz()">Generate Quiz</button>
+        <div id="quizOutput" class="output"></div>
+      </section>
 
-    <div>
-        <h4>Research Assistant</h4>
-        <p>Explore research papers and discover knowledge.</p>
-    </div>
+      <section id="research" class="tool-section">
+        <h2>Research Assistant</h2>
+        <p>Search for a topic to explore.</p>
+        <input id="researchInput" type="text" placeholder="Enter a topic">
+        <button onclick="searchResearch()">Search</button>
+        <div id="researchOutput" class="output"></div>
+      </section>
 
-    <div>
-        <h4>Learning Analytics</h4>
-        <p>Understand your learning progress.</p>
-    </div>
+      <section id="analytics" class="tool-section">
+        <h2>Learning Analytics</h2>
+        <p>Your activity on KNOWLY.</p>
+        <div id="analyticsOutput" class="output">
+          Keep learning to build your activity!
+        </div>
+      </section>
 
-    <footer>
-        <p>KNOWLY © 2026 | Learn Without Limits</p>
-    </footer>
-<script src="script.js"></script>
-    </section>
+      <footer>
+        <p>KNOWLY © 2026 | Learn something new every day.</p>
+      </footer>
+    </main>
+  </div>
 
-<!-- Smart Notes code goes here -->
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-</body>
-</html>
-
