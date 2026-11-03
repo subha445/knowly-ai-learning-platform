@@ -16,6 +16,7 @@
         <a href="#quiz">AI Quiz</a>
         <a href="#research">Research</a>
         <a href="#flashcards">Flashcards</a>
+        <a href="#timer">Study Timer</a>
         <a href="#analytics">Analytics</a>
       </nav>
     </aside>
@@ -110,6 +111,19 @@
 
       <footer>
         <p>KNOWLY © 2026 | Learn something new every day.</p>
+        <section id="timer" class="tool-section">
+  <h2>⏱️ Study Timer</h2>
+  <p>Focus for 25 minutes, then take a 5-minute break.</p>
+
+  <h1 id="timerDisplay">25:00</h1>
+
+  <button onclick="startTimer()">Start</button>
+  <button onclick="pauseTimer()">Pause</button>
+  <button onclick="resetTimer()">Reset</button>
+  <button onclick="setBreak()">5 Min Break</button>
+
+  <p id="timerMessage">Ready to focus?</p>
+        </section>
       </footer>
     </main>
   </div>
