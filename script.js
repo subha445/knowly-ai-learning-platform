@@ -148,3 +148,57 @@ function safeURL(url) {
 }
 
 updateStats();
+let flashcards = [];
+let currentCard = 0;
+let showingAnswer = false;
+
+function createFlashcards() {
+  const input = document.getElementById("flashcardInput").value.trim();
+  const output = document.getElementById("flashcardOutput");
+
+  if (!input) {
+    output.textContent = "Enter some questions and answers first.";
+    return;
+  }
+
+  flashcards = input.split("\n")
+    .map(line => line.split("|"))
+    .filter(parts => parts.length >= 2)
+    .map(parts => ({
+      question: parts[0].trim(),
+      answer: parts.slice(1).join("|").trim()
+    }))
+    .filter(card => card.question && card.answer);
+
+  if (!flashcards.length) {
+    output.textContent = "Use this format: Question | Answer";
+    return;
+  }
+
+  currentCard = 0;
+  showingAnswer = false;
+  showFlashcard();
+}
+
+function showFlashcard() {
+  const card = flashcards[currentCard];
+  const output = document.getElementById("flashcardOutput");
+
+  output.innerHTML = `
+    <h3>Card ${currentCard + 1} of ${flashcards.length}</h3>
+    <p>${escapeHTML(showingAnswer ? card.answer : card.question)}</p>
+    <button onclick="flipFlashcard()"> ${showingAnswer ? "Show Question" : "Show Answer"} </button>
+    <button onclick="nextFlashcard()">Next Card →</button>
+  `;
+}
+
+function flipFlashcard() {
+  showingAnswer = !showingAnswer;
+  showFlashcard();
+}
+
+function nextFlashcard() {
+  currentCard = (currentCard + 1) % flashcards.length;
+  showingAnswer = false;
+  showFlashcard();
+}
