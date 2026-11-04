@@ -350,3 +350,22 @@ function displayStudyTasks() {
 }
 
 displayStudyTasks();
+// KNOWLY Doubt Solver
+
+function solveDoubt() {
+  const subject = document.getElementById("doubtSubject").value;
+  const question = document.getElementById("doubtQuestion").value.trim();
+  const answer = document.getElementById("doubtAnswer");
+
+  if (!question) {
+    answer.textContent = "Please enter your question first!";
+    return;
+  }
+
+  answer.textContent =
+    `Subject: ${subject}\n\n` +
+    `Your question: ${question}\n\n` +
+    `Your doubt has been received!\n\n` +
+    `This is the KNOWLY demo version. Real AI-generated explanations ` +
+    `will be available after connecting a secure AI service.`;
+}
