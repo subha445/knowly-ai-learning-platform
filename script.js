@@ -369,3 +369,39 @@ function solveDoubt() {
     `This is the KNOWLY demo version. Real AI-generated explanations ` +
     `will be available after connecting a secure AI service.`;
 }
+// KNOWLY Daily Learning Challenge
+
+let challengePoints = Number(localStorage.getItem("challengePoints")) || 0;
+let challengeStreak = Number(localStorage.getItem("challengeStreak")) || 0;
+let challengeCompleted = localStorage.getItem("challengeCompleted") === new Date().toDateString();
+
+function updateChallenge() {
+  document.getElementById("challengeProgress").textContent =
+    challengeCompleted ? "3 / 3 completed 🎉" : "0 / 3 completed";
+
+  document.getElementById("challengePoints").textContent =
+    `⭐ Points: ${challengePoints}`;
+
+  document.getElementById("challengeStreak").textContent =
+    `🔥 Streak: ${challengeStreak} days`;
+}
+
+function completeChallenge() {
+  if (challengeCompleted) {
+    alert("You have already completed today's challenge!");
+    return;
+  }
+
+  challengePoints += 30;
+  challengeStreak += 1;
+  challengeCompleted = true;
+
+  localStorage.setItem("challengePoints", challengePoints);
+  localStorage.setItem("challengeStreak", challengeStreak);
+  localStorage.setItem("challengeCompleted", new Date().toDateString());
+
+  updateChallenge();
+  alert("Congratulations! You earned 30 points! 🏆");
+}
+
+updateChallenge();
