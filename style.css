@@ -403,3 +403,40 @@ footer {
   line-height: 1.7;
   white-space: pre-wrap;
 }
+/* KNOWLY Daily Learning Challenge */
+
+#daily-challenge {
+  margin: 40px 0;
+  padding: 25px;
+  border-radius: 16px;
+  background: #f4f0ff;
+  color: #292044;
+}
+
+.challenge-card {
+  margin-top: 20px;
+  padding: 22px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #c8b9ed;
+}
+
+.challenge-card h3 {
+  color: #7651c9;
+}
+
+#challengeProgress,
+#challengePoints,
+#challengeStreak {
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.challenge-card button {
+  padding: 12px 20px;
+  background: #7651c9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  }
