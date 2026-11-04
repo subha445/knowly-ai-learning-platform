@@ -364,3 +364,42 @@ footer {
   font-weight: bold;
   margin: 15px 0;
 }
+/* KNOWLY AI Doubt Solver */
+
+#doubt-solver {
+  margin: 40px 0;
+  padding: 25px;
+  border-radius: 16px;
+  background: #f4f0ff;
+  color: #292044;
+}
+
+#doubtSubject,
+#doubtQuestion {
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+  padding: 13px;
+  border: 1px solid #c8b9ed;
+  border-radius: 9px;
+  font-size: 15px;
+}
+
+#doubt-solver button {
+  padding: 12px 20px;
+  background: #7651c9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#doubtAnswer {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 10px;
+  background: white;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
