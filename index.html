@@ -140,6 +140,28 @@
   <div id="studyProgress"></div>
   <div id="studyTaskList"></div>
       </section>
+      <section id="doubt-solver">
+  <h2>🤖 AI Doubt Solver</h2>
+  <p>Ask a question and get a simple explanation!</p>
+
+  <select id="doubtSubject">
+    <option value="Science">Science</option>
+    <option value="Maths">Maths</option>
+    <option value="English">English</option>
+    <option value="Computer Science">Computer Science</option>
+    <option value="Social Science">Social Science</option>
+  </select>
+
+  <textarea
+    id="doubtQuestion"
+    placeholder="Type your question here..."
+    rows="4"
+  ></textarea>
+
+  <button onclick="solveDoubt()">Explain My Doubt</button>
+
+  <div id="doubtAnswer"></div>
+      </section>
     </main>
   </div>
 
